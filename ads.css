@@ -1,0 +1,55 @@
+  /* Ad placement previews — YOMAK green/white identity. These are placeholders, not live advertisements. */
+  .yomak-ad-slot {
+    box-sizing: border-box;
+    width: min(100%,1000px);
+    min-height: 112px;
+    margin: 26px auto;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px dashed #dca64b;
+    border-radius: 16px;
+    background: linear-gradient(135deg,#fffaf0,#fff3d8);
+    color: #76501c;
+    text-align: center;
+    overflow: hidden;
+}
+  .yomak-ad-slot__label {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .01em;
+}
+  .yomak-ad-slot small {
+    font-size: 12px;
+    color: #8a744e;
+    line-height: 1.6;
+}
+  .yomak-ad-slot--preview {
+    box-shadow: 0 5px 18px rgba(110,80,30,.05);
+}
+  .yomak-ad-slot--preview::before {
+    content: 'AD SPACE';
+    font-size: 9px;
+    letter-spacing: .16em;
+    font-weight: 700;
+    color: #a9874d;
+    opacity: .85;
+}
+  @media(max-width:760px) {
+    .yomak-ad-slot {
+      min-height: 90px;
+      margin: 18px auto;
+      padding: 14px;
+      border-radius: 13px;
+  }
+    .yomak-ad-slot__label {
+      font-size: 14px;
+  }
+    .yomak-ad-slot small {
+      font-size: 11px;
+  }
+}
+

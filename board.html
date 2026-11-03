@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#04796C"><link rel="icon" href="assets/logo.png"><link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600&display=swap"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><script src="lite.js"></script><script src="sfx.js" defer></script><script src="loader.js"></script><title>لوحة YOMAK | YOMAK</title>
+  </head>
+  <body data-page="board">
+    <div id="app">
+      <aside>
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a><p class="muted">مساحة إنجازك اليومية</p>
+        <nav id="nav">
+<span class="nav-label">الرئيسية</span><a data-page="dashboard" href="dashboard.html">الرئيسية</a><a data-page="today" href="today.html">مهام اليوم<em class="badge" id="nToday" hidden></em></a><span class="nav-label">المهام</span><a data-page="all" href="tasks.html">كل المهام</a><a data-page="upcoming" href="upcoming.html">القادمة</a><a data-page="completed" href="completed.html">المكتملة</a><a data-page="late" href="late.html">المتأخرة<em class="badge late" id="nLate" hidden></em></a><span class="nav-label">أدواتك</span><a data-page="planner" href="planner.html">خطة يومي</a><a data-page="focus" href="focus.html">وضع التركيز</a><a data-page="rewards" href="rewards.html">المكافآت</a><a data-page="heatmap" href="heatmap.html">خريطة الإنتاجية</a><a data-page="board" href="board.html">لوحة YOMAK</a><a data-page="wrapup" href="wrapup.html">ملخص اليوم</a><a data-page="story" href="story.html">يومك كقصة</a><a data-page="calendar" href="calendar.html">التقويم</a><span class="nav-label">المزيد</span><a data-page="stats" href="statistics.html">الإحصائيات</a><a data-page="settings" href="settings.html">الإعدادات</a>
+          <div hidden>
+<button data-view="today" class="active">مهام اليوم</button><button data-view="all">كل المهام</button><button data-view="upcoming">القادمة</button><button data-view="completed">المكتملة</button>
+          </div>
+        </nav>
+        <div class="aside-bottom">
+<span id="userEmail"></span><button id="logout" class="secondary">تسجيل الخروج</button>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <div>
+<p class="eyebrow">YOMAK / اللوحة</p><h1>لوحة YOMAK</h1><p class="muted" id="dateLabel"></p>
+          </div>
+        </header>
+        <section class="bd-bar panel">
+          <form id="bdAdd" class="bd-add">
+<input id="bdTitle" maxlength="120" placeholder="أضف مهمة سريعة إلى «قيد الانتظار»..." required><button type="submit" id="bdSave">+ إضافة</button>
+          </form>
+<p class="muted">اسحب البطاقات بين الأعمدة (أو استخدم الأسهم). الإفلات في «تم» بيسجّل الإنجاز ويمنحك XP.</p>
+        </section>
+        <div class="bd-cols" id="bdCols">
+        </div>
+      </main>
+    </div>
+    <dialog id="bdDialog">
+      <form id="bdForm">
+        <div class="dialog-head">
+<h2>تعديل المهمة</h2><button type="button" class="icon-btn" id="bdClose" aria-label="إغلاق">✕</button>
+        </div>
+<label>عنوان المهمة<input id="eTitle" maxlength="120" required></label><label>الوصف<textarea id="eDesc" rows="2"></textarea></label>
+        <div class="two">
+<label>التاريخ<input type="date" id="eDate" required></label><label>الوقت<input type="time" id="eTime"></label>
+        </div>
+        <div class="two">
+<label>الأولوية<select id="ePri"><option value="low">منخفضة</option><option value="medium">متوسطة</option><option value="high">عالية</option></select></label><label>التصنيف<select id="eCat"><option>شخصي</option><option>شغل</option><option>دراسة</option><option>أخرى</option></select></label>
+        </div>
+        <div class="dialog-actions">
+<button type="button" class="danger" id="eDel">🗑 حذف</button><button type="submit" id="eSave">حفظ</button>
+        </div>
+      </form>
+    </dialog>
+<script src="select-ui.js" defer></script><script src="datetime-ui.js" defer></script><script type="module" src="board.js"></script><script type="module" src="topbar.js"></script>
+  </body>
+</html>

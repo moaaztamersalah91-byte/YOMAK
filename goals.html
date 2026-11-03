@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#04796C"><link rel="icon" href="assets/logo.png"><link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600&display=swap"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><script src="lite.js"></script><script src="sfx.js" defer></script><script src="loader.js"></script><title>الأهداف | YOMAK</title>
+  </head>
+  <body data-page="goals">
+    <div id="app">
+      <aside>
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a><p class="muted">مساحة إنجازك اليومية</p>
+        <nav id="nav">
+<span class="nav-label">الرئيسية</span><a data-page="dashboard" href="dashboard.html">الرئيسية</a><a data-page="today" href="today.html">مهام اليوم<em class="badge" id="nToday" hidden></em></a><span class="nav-label">المهام</span><a data-page="all" href="tasks.html">كل المهام</a><a data-page="upcoming" href="upcoming.html">القادمة</a><a data-page="completed" href="completed.html">المكتملة</a><a data-page="late" href="late.html">المتأخرة<em class="badge late" id="nLate" hidden></em></a><span class="nav-label">أدواتك</span><a data-page="planner" href="planner.html">خطة يومي</a><a data-page="focus" href="focus.html">وضع التركيز</a><a data-page="rewards" href="rewards.html">المكافآت</a><a data-page="heatmap" href="heatmap.html">خريطة الإنتاجية</a><a data-page="board" href="board.html">لوحة YOMAK</a><a data-page="wrapup" href="wrapup.html">ملخص اليوم</a><a data-page="story" href="story.html">يومك كقصة</a><a data-page="calendar" href="calendar.html">التقويم</a><span class="nav-label">المزيد</span><a data-page="stats" href="statistics.html">الإحصائيات</a><a data-page="settings" href="settings.html">الإعدادات</a>
+          <div hidden>
+<button data-view="today" class="active">مهام اليوم</button><button data-view="all">كل المهام</button><button data-view="upcoming">القادمة</button><button data-view="completed">المكتملة</button>
+          </div>
+        </nav>
+        <div class="aside-bottom">
+<span id="userEmail"></span><button id="logout" class="secondary">تسجيل الخروج</button>
+        </div>
+      </aside>
+<script src="sidenav.js"></script>
+      <main>
+        <header>
+          <div>
+<p class="eyebrow">YOMAK / الأهداف</p><h1>الأهداف</h1><p class="muted" id="dateLabel"></p>
+          </div>
+<button id="glNew" aria-label="هدف جديد">+ هدف جديد</button>
+        </header>
+        <section class="stats gl-stats">
+          <article>
+<span>أهداف نشطة</span><strong id="glActive">0</strong>
+          </article>
+          <article>
+<span>أهداف محققة</span><strong id="glDone">0</strong>
+          </article>
+          <article>
+<span>متوسط التقدّم</span><strong id="glAvg">0%</strong>
+          </article>
+          <article>
+<span>مراحل منجزة</span><strong id="glMs">0</strong>
+          </article>
+        </section>
+        <section class="panel gl-bar">
+          <div class="seg" id="glFilter" role="tablist" aria-label="تصفية الأهداف">
+<button type="button" data-f="all" class="on">الكل</button><button type="button" data-f="month">شهرية</button><button type="button" data-f="year">سنوية</button><button type="button" data-f="done">محققة</button>
+          </div>
+<p class="muted">التقدّم بيتحسب تلقائيًا من المهام المرتبطة بكل مرحلة.</p>
+        </section>
+        <div id="glList" class="gl-list">
+        </div>
+      </main>
+    </div>
+    <dialog id="glDialog">
+      <form id="glForm">
+        <div class="dialog-head">
+<h2 id="glDTitle">هدف جديد</h2><button type="button" class="icon-btn" id="glClose" aria-label="إغلاق">✕</button>
+        </div>
+<label>عنوان الهدف<input id="glTitle" maxlength="100" placeholder="مثال: إنهاء كورس البرمجة" required></label><label>الوصف<textarea id="glDesc" rows="2" maxlength="300" placeholder="ليه الهدف ده مهم؟ (اختياري)"></textarea></label>
+        <div class="two">
+<label>النوع<select id="glType"><option value="month">شهري</option><option value="year">سنوي</option></select></label><label id="glPerM">الشهر<input type="month" id="glMonth"></label><label id="glPerY" hidden>السنة<input type="number" data-pick="year" id="glYear" min="2024" max="2100"></label>
+        </div>
+        <div class="pick-l">
+الأيقونة
+        </div>
+        <div class="pick" id="glIcons">
+<button type="button" class="pk-e" data-e="🎯" aria-label="🎯">🎯</button><button type="button" class="pk-e" data-e="🚀" aria-label="🚀">🚀</button><button type="button" class="pk-e" data-e="📚" aria-label="📚">📚</button><button type="button" class="pk-e" data-e="💼" aria-label="💼">💼</button><button type="button" class="pk-e" data-e="💪" aria-label="💪">💪</button><button type="button" class="pk-e" data-e="💰" aria-label="💰">💰</button><button type="button" class="pk-e" data-e="✈️" aria-label="✈️">✈️</button><button type="button" class="pk-e" data-e="🏠" aria-label="🏠">🏠</button><button type="button" class="pk-e" data-e="🎓" aria-label="🎓">🎓</button><button type="button" class="pk-e" data-e="❤️" aria-label="❤️">❤️</button><button type="button" class="pk-e" data-e="🧠" aria-label="🧠">🧠</button><button type="button" class="pk-e" data-e="🌱" aria-label="🌱">🌱</button>
+        </div>
+<label id="glMsWrap">المراحل (سطر لكل مرحلة)<textarea id="glMsText" rows="4" placeholder="المرحلة الأولى&#10;المرحلة التانية&#10;المرحلة التالتة"></textarea></label>
+        <div class="dialog-actions">
+<button type="button" class="danger" id="glDel" hidden>🗑 حذف</button><button type="submit" id="glSave">حفظ الهدف</button>
+        </div>
+      </form>
+    </dialog>
+<script src="select-ui.js" defer></script><script src="datetime-ui.js" defer></script><script type="module" src="goals.js"></script><script type="module" src="topbar.js"></script>
+  </body>
+</html>

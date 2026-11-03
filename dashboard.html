@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#04796C"><link rel="icon" href="assets/logo.png"><link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600&display=swap"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><script src="lite.js"></script><script src="sfx.js" defer></script><script src="loader.js"></script><title>نظرة عامة | YOMAK</title>
+  </head>
+  <body data-page="dashboard">
+    <div id="app">
+      <aside>
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a><p class="muted">مساحة إنجازك اليومية</p>
+        <nav id="nav">
+<span class="nav-label">الرئيسية</span><a data-page="dashboard" href="dashboard.html">الرئيسية</a><a data-page="today" href="today.html">مهام اليوم<em class="badge" id="nToday" hidden></em></a><span class="nav-label">المهام</span><a data-page="all" href="tasks.html">كل المهام</a><a data-page="upcoming" href="upcoming.html">القادمة</a><a data-page="completed" href="completed.html">المكتملة</a><a data-page="late" href="late.html">المتأخرة<em class="badge late" id="nLate" hidden></em></a><span class="nav-label">أدواتك</span><a data-page="planner" href="planner.html">خطة يومي</a><a data-page="focus" href="focus.html">وضع التركيز</a><a data-page="rewards" href="rewards.html">المكافآت</a><a data-page="heatmap" href="heatmap.html">خريطة الإنتاجية</a><a data-page="board" href="board.html">لوحة YOMAK</a><a data-page="wrapup" href="wrapup.html">ملخص اليوم</a><a data-page="story" href="story.html">يومك كقصة</a><a data-page="calendar" href="calendar.html">التقويم</a><span class="nav-label">المزيد</span><a data-page="stats" href="statistics.html">الإحصائيات</a><a data-page="settings" href="settings.html">الإعدادات</a>
+          <div hidden>
+<button data-view="today" class="active">مهام اليوم</button><button data-view="all">كل المهام</button><button data-view="upcoming">القادمة</button><button data-view="completed">المكتملة</button>
+          </div>
+        </nav>
+        <div class="aside-bottom">
+<span id="userEmail"></span><button id="logout" class="secondary">تسجيل الخروج</button>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <div>
+<p class="eyebrow">YOMAK / لوحة المهام</p><h1 id="heading">مهام اليوم</h1><p class="muted" id="dateLabel"></p>
+          </div>
+<button id="newTask" aria-label="مهمة جديدة">+ مهمة جديدة</button>
+        </header>
+        <div class="bento">
+          <section class="panel hero-card" id="progressSection">
+            <div class="ring-wrap">
+              <div class="ring">
+              </div>
+<strong id="progressText">0%</strong>
+            </div>
+            <div class="hero-copy">
+<h2>معدل إنجاز اليوم</h2><p>كل مهمة تخلّصها بتقرّبك من يوم مرتّب.</p><span class="hero-sub" id="progressSub">لا توجد مهام اليوم</span>
+              <div class="track">
+                <div id="progressBar">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="stats" id="statsSection">
+            <article>
+<i class="si"></i><span>مهام اليوم</span><strong id="sToday">0</strong>
+            </article>
+            <article>
+<i class="si"></i><span>المكتملة</span><strong id="sDone">0</strong>
+            </article>
+            <article>
+<i class="si"></i><span>القادمة</span><strong id="sUpcoming">0</strong>
+            </article>
+            <article>
+<i class="si"></i><span>المتأخرة</span><strong id="sLate">0</strong>
+            </article>
+          </section>
+        </div>
+        <section class="panel" id="listSection">
+          <div class="tools">
+<input id="search" type="search" placeholder="ابحث عن مهمة..."><select id="status"><option value="all">كل الحالات</option><option value="open">غير مكتملة</option><option value="done">مكتملة</option></select><select id="sort"><option value="date">حسب الموعد</option><option value="priority">حسب الأولوية</option><option value="created">الأحدث إضافة</option></select>
+          </div>
+          <div id="taskList">
+          </div>
+        </section>
+        <section class="panel" id="settingsSection" hidden>
+<h2>إعدادات الحساب</h2>
+          <div class="srow">
+<span>البريد الإلكتروني</span><strong id="settingsEmail"></strong>
+          </div>
+          <div class="srow">
+<span>المظهر</span><strong>فاتح</strong>
+          </div>
+          <div class="srow">
+<span>المزامنة</span><strong>Firebase Cloud Firestore</strong>
+          </div>
+<button id="settingsLogout" class="secondary">تسجيل الخروج</button>
+        </section>
+      </main>
+    </div>
+    <dialog id="taskDialog">
+      <form id="taskForm">
+        <div class="dialog-head">
+<h2 id="dialogTitle">مهمة جديدة</h2><button type="button" class="icon-btn" id="closeDialog">✕</button>
+        </div>
+<label>عنوان المهمة<input id="title" maxlength="120" required></label><label>الوصف<textarea id="description" rows="3"></textarea></label>
+        <div class="two">
+<label>التاريخ<input type="date" id="dueDate" required></label><label>الوقت<input type="time" id="dueTime"></label>
+        </div>
+        <div class="two">
+<label>الأولوية<select id="priority"><option value="low">منخفضة</option><option value="medium" selected>متوسطة</option><option value="high">عالية</option></select></label><label>التصنيف<select id="category"><option>شخصي</option><option>شغل</option><option>دراسة</option><option>أخرى</option></select></label>
+        </div>
+<label>ملاحظات<textarea id="notes" rows="2"></textarea></label>
+        <div class="dialog-actions">
+<button type="button" class="secondary" id="cancel">إلغاء</button><button type="submit" id="save">حفظ المهمة</button>
+        </div>
+      </form>
+    </dialog>
+<script src="select-ui.js" defer></script><script src="datetime-ui.js" defer></script><script type="module" src="app.js"></script><script type="module" src="topbar.js"></script>
+  </body>
+</html>

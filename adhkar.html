@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#04796C"><link rel="icon" href="assets/logo.png"><link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600&display=swap"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><script src="lite.js"></script><script src="sfx.js" defer></script><script src="loader.js"></script><title>الأذكار | YOMAK</title>
+  </head>
+  <body data-page="adhkar">
+    <div id="app">
+      <aside>
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a><p class="muted">مساحة إنجازك اليومية</p>
+        <nav id="nav">
+<span class="nav-label">الرئيسية</span><a data-page="dashboard" href="dashboard.html">الرئيسية</a><a data-page="today" href="today.html">مهام اليوم<em class="badge" id="nToday" hidden></em></a><span class="nav-label">المهام</span><a data-page="all" href="tasks.html">كل المهام</a><a data-page="upcoming" href="upcoming.html">القادمة</a><a data-page="completed" href="completed.html">المكتملة</a><a data-page="late" href="late.html">المتأخرة<em class="badge late" id="nLate" hidden></em></a><span class="nav-label">أدواتك</span><a data-page="planner" href="planner.html">خطة يومي</a><a data-page="focus" href="focus.html">وضع التركيز</a><a data-page="rewards" href="rewards.html">المكافآت</a><a data-page="heatmap" href="heatmap.html">خريطة الإنتاجية</a><a data-page="board" href="board.html">لوحة YOMAK</a><a data-page="wrapup" href="wrapup.html">ملخص اليوم</a><a data-page="story" href="story.html">يومك كقصة</a><a data-page="calendar" href="calendar.html">التقويم</a><span class="nav-label">المزيد</span><a data-page="stats" href="statistics.html">الإحصائيات</a><a data-page="settings" href="settings.html">الإعدادات</a>
+          <div hidden>
+<button data-view="today" class="active">مهام اليوم</button><button data-view="all">كل المهام</button><button data-view="upcoming">القادمة</button><button data-view="completed">المكتملة</button>
+          </div>
+        </nav>
+        <div class="aside-bottom">
+<span id="userEmail"></span><button id="logout" class="secondary">تسجيل الخروج</button>
+        </div>
+      </aside>
+<script src="sidenav.js"></script>
+      <main>
+        <header>
+          <div>
+<p class="eyebrow">YOMAK / إسلاميات</p><h1>الأذكار</h1><p class="muted" id="dateLabel"></p>
+          </div>
+        </header>
+        <nav class="isl-tabs" aria-label="أقسام إسلاميات">
+<a href="prayer.html">🕌 الصلاة</a><a href="adhkar.html" class="on" aria-current="page">📿 الأذكار</a><a href="quran.html">📖 ورد القرآن</a><a href="tasbih.html">📿 السبحة</a><a href="sawm.html">🌙 الصيام</a><a href="isl-week.html">📊 ملخص الأسبوع</a>
+        </nav>
+        <section class="panel isl-prog">
+          <div class="seg" id="adTabs" role="tablist" aria-label="نوع الأذكار">
+          </div>
+          <div class="isl-bar">
+<u id="adBar"></u>
+          </div>
+<p class="muted"><span id="adDone">0</span> من <span id="adAll">0</span> أذكار مكتملة اليوم</p>
+        </section>
+        <div id="adList" class="isl-cards">
+        </div>
+        <section class="panel" id="adCustom" hidden>
+          <div class="rw-head">
+<h2>أضف ذكرك</h2><small class="muted">لحد 20 ذكر</small>
+          </div>
+          <form id="adForm" class="ad-form">
+<input id="adTxt" maxlength="120" placeholder="مثال: أستغفر الله وأتوب إليه" required><input id="adCnt" type="number" min="1" max="1000" value="100" inputmode="numeric" aria-label="العدد اليومي"><button type="submit">+ إضافة</button>
+          </form>
+          <div id="adManage" class="ad-manage">
+          </div>
+        </section>
+        <div class="isl-foot">
+<button type="button" class="secondary" id="adReset">إعادة تصفير هذا القسم</button><p class="muted isl-note">اضغط على الذكر لعدّه. العدّادات بتتصفّر تلقائيًا كل يوم. راجع النصوص من مصدر موثوق (مثل «حصن المسلم»).</p>
+        </div>
+      </main>
+    </div>
+<script type="module" src="adhkar.js"></script><script type="module" src="topbar.js"></script>
+  </body>
+</html>
