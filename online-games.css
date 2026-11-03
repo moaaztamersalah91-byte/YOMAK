@@ -1,0 +1,217 @@
+  .on-game {
+    direction: rtl;
+    color: var(--ink,#111);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8px;
+}
+  .on-status {
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(4,121,108,.17);
+    border: 1px solid rgba(70,190,165,.3);
+    text-align: center;
+    font-weight: 800;
+}
+  .on-scores {
+    padding: 10px 12px;
+    text-align: center;
+    border-radius: 12px;
+    background: var(--mint-2,#eaf3ef);
+    font-weight: 700;
+    line-height: 1.8;
+}
+  .on-xo-board {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(65px,110px));
+    gap: 8px;
+    justify-content: center;
+}
+  .on-xo-cell {
+    aspect-ratio: 1;
+    border: 1px solid var(--line,#d6e2e5);
+    border-radius: 16px;
+    background: var(--mint-2,#eaf3ef);
+    font-size: clamp(2rem,7vw,3.5rem);
+    font-weight: 900;
+    color: var(--ink,#111);
+    cursor: pointer;
+}
+  .on-xo-cell:disabled {
+    cursor: default;
+    opacity: .92;
+}
+  .on-xo-cell.x {
+    color: #ff7c89;
+}
+  .on-xo-cell.o {
+    color: #6bbcff;
+}
+  .on-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+  .on-btn {
+    border: 0;
+    border-radius: 11px;
+    padding: 10px 15px;
+    background: #087c6c;
+    color: #fff;
+    font-weight: 750;
+    cursor: pointer;
+}
+  .on-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+  .on-muted {
+    opacity: .72;
+    font-size: .9rem;
+}
+  .on-memory-board {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(48px,92px));
+    gap: 8px;
+    justify-content: center;
+}
+  .on-memory-card {
+    aspect-ratio: 4/5;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px;
+    background: linear-gradient(145deg,#146e66,#183e51);
+    color: white;
+    font-size: clamp(1.5rem,4vw,2.5rem);
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 5px 14px #0002;
+}
+  .on-memory-card.matched {
+    background: rgba(36,163,115,.28);
+    border-color: #47c99a;
+}
+  .on-fight-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9/4;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: #07131d;
+}
+  .on-fight-controls {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 8px;
+}
+  .on-fight-controls .skill {
+    background: #8b5d08;
+}
+  @media(max-width:560px) {
+    .on-game {
+      padding: 2px;
+  }
+    .on-fight-controls {
+      grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+    .on-xo-board {
+      grid-template-columns: repeat(3,minmax(62px,88px));
+  }
+    .on-memory-board {
+      grid-template-columns: repeat(4,minmax(45px,1fr));
+      gap: 6px;
+  }
+    .on-memory-card {
+      min-width: 0;
+  }
+}
+  .riddle-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+}
+  .riddle-side {
+    min-width: 0;
+    border: 1px solid var(--border,#d9e2e7);
+    border-radius: 16px;
+    padding: 14px;
+    background: var(--card,#fff);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  .riddle-side input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border,#ccd5db);
+    border-radius: 10px;
+    font: inherit;
+}
+  .riddle-side h2 {
+    font-size: 1.35rem;
+    line-height: 1.6;
+}
+  .riddle-side h3 {
+    margin: 0;
+}
+  @media(max-width:620px) {
+    .riddle-split {
+      grid-template-columns: 1fr;
+  }
+    .riddle-side {
+      padding: 11px;
+  }
+}
+  /* Match the riddle prompt and hidden-word display to YOMAK's main text color. */
+  .on-game h2,
+.riddle-side h2,
+#riddles > h2,
+#hangman > h2 {
+    color: var(--ink, #111) !important;
+}
+  /* Keep all riddle feedback readable in YOMAK's normal text color. */
+  .riddle-feedback {
+    color: var(--ink, #111) !important;
+    opacity: 1 !important;
+    font-weight: 700;
+    line-height: 1.8;
+    margin: 4px 0;
+}
+  .riddle-feedback:empty {
+    display: none;
+}
+  .word-hint {
+    color: var(--ink, #111) !important;
+    opacity: 1 !important;
+    font-weight: 700;
+    margin: 4px 0 0;
+    text-align: center;
+}
+  .word-letters {
+    gap: 8px;
+}
+  .word-letter {
+    min-width: 42px;
+    min-height: 42px;
+    font-size: 1.1rem;
+}
+  .word-letter:disabled {
+    opacity: .45;
+}
+  /* Readable text on the light game card: use YOMAK's main black instead of the old light-on-dark colors. */
+  .on-game,.on-status,.on-scores,.on-muted,.on-game label,.on-game p,.on-game small,.on-game span:not(.word-letter) {
+    color: var(--ink,#111);
+}
+  .on-muted {
+    opacity: .78;
+}
+  .on-game .on-btn,.on-game button.on-btn {
+    color: #fff;
+}
+

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#04796C"><link rel="icon" href="assets/logo.png"><link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600&display=swap"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><script src="lite.js"></script><script src="sfx.js" defer></script><script src="loader.js"></script><title>إنشاء حساب جديد | YOMAK</title>
+  </head>
+  <body>
+    <div class="auth-wrap">
+      <aside class="auth-side">
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a>
+        <div>
+<h2>ابدأ تنظيم يومك من النهارده.</h2><p>حساب مجاني في ثواني، ومساحة واحدة لكل مهامك.</p>
+          <ul>
+            <li>
+مهامك محفوظة في حسابك وتتزامن فورًا
+            </li>
+            <li>
+أولويات ومواعيد واضحة بدون تشتيت
+            </li>
+            <li>
+نسبة إنجاز يومية تحفّزك تكمل
+            </li>
+          </ul>
+        </div>
+<small>YOMAK © 2026</small>
+      </aside>
+      <div class="auth-card">
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="شعار يومك"><span>YOMAK<small>يومك، على ترتيبك</small></span></a><h1>إنشاء حساب جديد</h1><p>خلّي كل مهمة في مكانها، وكل يوم أوضح.</p>
+        <div id="authError" class="error" role="alert">
+        </div>
+        <form id="authForm">
+<label>Username (اسمك بين أصحابك في الألعاب)<input id="username" type="text" autocomplete="username" maxlength="16" placeholder="عربي أو إنجليزي، 3 لـ 16 حرف" required></label><label>البريد الإلكتروني<input id="email" type="email" autocomplete="email" placeholder="name@example.com" required></label><label>كلمة المرور<input id="password" type="password" autocomplete="new-password" minlength="6" placeholder="6 أحرف على الأقل" required></label><button id="authSubmit">إنشاء الحساب</button>
+        </form>
+        <div class="auth-divider">
+أو
+        </div>
+<button class="google-btn" id="google"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.7 1.2 9.2 3.6l6.9-6.9C35.9 2.3 30.4 0 24 0 14.6 0 6.5 5.4 2.6 13.3l8 6.2C12.5 13.7 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.27 5.48-4.8 7.18l7.73 6C44.39 38.02 46.98 31.85 46.98 24.55z"/><path fill="#FBBC05" d="M10.6 28.5A14.4 14.4 0 0 1 9.75 24c0-1.56.27-3.08.82-4.5l-8-6.2A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.58 10.7z"/><path fill="#34A853" d="M24 48c6.48 0 11.92-2.13 15.9-5.8l-7.73-6c-2.14 1.44-4.88 2.3-8.17 2.3-6.2 0-11.47-4.18-13.4-9.8l-8 6.2C6.5 42.6 14.6 48 24 48z"/></svg><span>المتابعة باستخدام Google</span></button><p class="auth-switch">عندك حساب؟ <a href=login.html>تسجيل الدخول</a></p><a class="back-link" href="index.html">العودة للرئيسية</a>
+      </div>
+    </div>
+<script type="module" src="auth.js"></script>
+  </body>
+</html>

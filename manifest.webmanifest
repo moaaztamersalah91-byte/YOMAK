@@ -1,0 +1,12 @@
+{
+  "name": "YOMAK — يومك، على ترتيبك",
+  "short_name": "YOMAK",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "today.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#04796C",
+  "icons": [{"src": "assets/logo.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any"}]
+}

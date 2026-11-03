@@ -1,0 +1,88 @@
+  .party-wrap {
+    max-width: 850px;
+    margin: 24px auto;
+    padding: 16px;
+}
+  .party-panel {
+    background: var(--panel,#fff);
+    border: 1px solid var(--line,#dbe5e1);
+    border-radius: 18px;
+    padding: 18px;
+    margin: 14px 0;
+}
+  .party-form {
+    display: grid;
+    gap: 12px;
+}
+  .party-form input,.party-form select,.party-form button,.party-btn {
+    font: inherit;
+    padding: 11px 14px;
+    border-radius: 11px;
+    border: 1px solid var(--line,#dbe5e1);
+}
+  .party-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+  .party-row>* {
+    flex: 1;
+}
+  .party-muted {
+    color: var(--muted,#65736e);
+    line-height: 1.8;
+}
+  .party-big {
+    font-size: clamp(24px,5vw,40px);
+    font-weight: 800;
+    text-align: center;
+    margin: 20px 0;
+}
+  .party-secret {
+    font-size: clamp(28px,7vw,48px);
+    font-weight: 900;
+    text-align: center;
+    padding: 25px 10px;
+    background: var(--mint,#e5f5ef);
+    border-radius: 16px;
+    margin: 16px 0;
+}
+  .party-players {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+  .party-chip {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--mint,#e5f5ef);
+    border: 1px solid var(--line,#dbe5e1);
+}
+  .party-hide {
+    filter: blur(8px);
+    user-select: none;
+}
+  .party-status {
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--mint,#e5f5ef);
+    font-weight: 700;
+    text-align: center;
+}
+  .party-vote {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
+    gap: 8px;
+}
+  .party-vote button {
+    padding: 10px;
+    border: 1px solid var(--line,#dbe5e1);
+    border-radius: 10px;
+    background: var(--card,#fff);
+    cursor: pointer;
+}
+  .party-vote button.selected {
+    outline: 3px solid var(--teal,#04796c);
+}
+

@@ -1,0 +1,346 @@
+  /* YOMAK Premium Games Layer — scoped to the 13 requested game pages */
+  :root {
+    --yg-main: #078575;
+    --yg-deep: #075e56;
+    --yg-bright: #b9f4dc;
+    --yg-red: #ef6461;
+    --yg-gold: #f4c96b;
+    --yg-ink: #153b36;
+    --yg-glass: rgba(255,255,255,.82);
+    --yg-shadow: 0 18px 48px rgba(5,69,61,.12);
+}
+  body:has(.party-wrap),body:has(.bz-wrap),body:has(.boardgame),body:has(.lg-wrap),body:has(.on-game) {
+    background: radial-gradient(ellipse at 12% 0%,rgba(7,133,117,.13),transparent 35%),radial-gradient(ellipse at 90% 18%,rgba(185,244,220,.45),transparent 28%),var(--bg,#f4faf7);
+}
+  .party-wrap,.bz-wrap,.boardgame,body:has(.on-game)>main {
+    position: relative;
+    isolation: isolate;
+}
+  .party-wrap:before,.bz-wrap:before,.boardgame:before,body:has(.on-game)>main:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -10px -14px auto;
+    height: 190px;
+    border-radius: 30px;
+    background: linear-gradient(120deg,rgba(7,133,117,.12),rgba(185,244,220,.22));
+    pointer-events: none;
+}
+  .party-wrap h1,.bz-wrap h1,.boardgame h1,body:has(.on-game)>main h1,#app main header h1 {
+    letter-spacing: -.035em;
+    text-wrap: balance;
+}
+  .party-wrap h1,.bz-head h1,.boardgame h1 {
+    font-size: clamp(2rem,5vw,3.2rem);
+    font-weight: 900;
+    background: linear-gradient(115deg,var(--yg-deep),var(--yg-main) 62%,#36aa8d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+  .party-panel,.bz-panel,.boardpanel,.panel,.on-game {
+    border: 1px solid rgba(7,133,117,.15)!important;
+    border-radius: 24px!important;
+    box-shadow: var(--yg-shadow)!important;
+    background: var(--card,rgba(255,255,255,.9))!important;
+    backdrop-filter: blur(12px);
+}
+  .party-panel,.bz-panel,.boardpanel {
+    padding: clamp(16px,3vw,28px)!important;
+}
+  .party-wrap>a:first-child,.bz-back,.boardgame>a:first-child,body:has(.on-game)>main>a:first-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 18px;
+    padding: 10px 15px;
+    border: 1px solid rgba(7,133,117,.17);
+    border-radius: 999px;
+    background: rgba(255,255,255,.7);
+    color: var(--yg-deep);
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s,background .2s;
+}
+  .party-wrap>a:first-child:hover,.bz-back:hover,.boardgame>a:first-child:hover,body:has(.on-game)>main>a:first-child:hover {
+    transform: translateY(-2px);
+    background: #e7faf2;
+}
+  button:not(.dd-btn):not(.pk-nav):not(.pk-day):not(.pk-cell):not(.pk-chip):not(.pk-ghost):not(.pk-ok),.btn,.party-panel button:not(.dd-btn),.bz-panel button:not(.dd-btn),.boardpanel button:not(.dd-btn),.on-game button:not(.dd-btn) {
+    border-radius: 13px!important;
+    font-weight: 800!important;
+    transition: transform .16s ease,box-shadow .16s ease,filter .16s ease!important;
+}
+  button:not(:disabled):not(.dd-btn):not([class*="pk-"]):hover,.btn:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.08);
+    box-shadow: 0 8px 20px rgba(7,133,117,.16);
+}
+  button:not(.dd-btn):not([class*="pk-"]):active,.btn:active {
+    transform: scale(.975)!important;
+}
+  button:focus-visible,a:focus-visible,[role=button]:focus-visible {
+    outline: 3px solid rgba(7,133,117,.45)!important;
+    outline-offset: 3px;
+}
+  input,select,textarea {
+    border-radius: 12px!important;
+    border-color: rgba(7,133,117,.22)!important;
+    accent-color: var(--yg-main);
+}
+  input:focus,select:focus,textarea:focus {
+    outline: 3px solid rgba(7,133,117,.14)!important;
+    border-color: var(--yg-main)!important;
+}
+  .party-muted,.bg-note,.lg-note,.arcade-help {
+    line-height: 1.8;
+}
+  .party-panel>*,.bz-panel>*,.boardpanel>* {
+    max-width: 100%;
+}
+  .party-panel button:not(.dd-btn):not([class*="pk-"]),.bz-panel button:not(.dd-btn):not([class*="pk-"]),.boardpanel button:not(.dd-btn):not([class*="pk-"]) {
+    min-height: 44px;
+}
+  .party-panel .active,.party-panel [aria-pressed=true],.boardpanel .active {
+    box-shadow: 0 0 0 3px rgba(7,133,117,.15);
+}
+  .bg-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 14px;
+    border: 1px solid rgba(7,133,117,.12);
+    border-radius: 18px;
+    background: rgba(7,133,117,.045);
+}
+  .bg-controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-weight: 800;
+}
+  #board {
+    overflow: auto;
+    max-width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(12,57,49,.08);
+}
+  .bg-players {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    gap: 10px;
+    margin-top: 16px;
+}
+  .bg-players>* {
+    border-radius: 15px!important;
+    border: 1px solid rgba(7,133,117,.14)!important;
+    padding: 12px!important;
+    background: rgba(7,133,117,.045)!important;
+}
+  .bg-log {
+    max-height: 190px;
+    overflow: auto;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(7,133,117,.045);
+    line-height: 1.8;
+}
+  .arcade-canvas,#soccerCanvas {
+    box-shadow: 0 16px 36px rgba(4,43,40,.18);
+    border: 2px solid rgba(7,133,117,.32)!important;
+    border-radius: 20px!important;
+    max-width: 100%;
+    height: auto;
+    touch-action: manipulation;
+}
+  .arcade-grid {
+    padding: 10px;
+    border-radius: 20px;
+    background: linear-gradient(145deg,#d7f1e7,#eaf8f1);
+    box-shadow: inset 0 2px 8px rgba(5,69,61,.08),0 12px 28px rgba(5,69,61,.08);
+}
+  .tile {
+    box-shadow: 0 3px 0 rgba(17,54,48,.08);
+    transition: transform .12s,background .12s!important;
+    border: 0!important;
+}
+  .tile:not([data-v="0"]) {
+    animation: yg-tile-in .18s ease-out;
+}
+  .lg-status,.arcade-status span,.soc-score {
+    border-radius: 15px!important;
+}
+  .lg-status {
+    padding: 13px 16px!important;
+    background: linear-gradient(110deg,rgba(7,133,117,.1),rgba(185,244,220,.3))!important;
+    border: 1px solid rgba(7,133,117,.12);
+}
+  .lg-score,.soc-score {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  .lg-score>span,.soc-score>span,.soc-score>strong {
+    padding: 10px 14px;
+    border-radius: 13px;
+    background: rgba(7,133,117,.06);
+}
+  .lg-board {
+    gap: 9px!important;
+}
+  .lg-board button,.xo-board button {
+    min-height: clamp(64px,14vw,110px);
+    border: 1px solid rgba(7,133,117,.18)!important;
+    background: linear-gradient(145deg,#fff,#e9f8f1)!important;
+    color: var(--yg-deep)!important;
+    font-size: clamp(1.7rem,5vw,3rem)!important;
+    box-shadow: 0 5px 0 rgba(7,94,86,.09);
+}
+  .on-game {
+    padding: clamp(14px,3vw,26px)!important;
+}
+  .on-game canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(5,69,61,.13);
+}
+  .bz-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0 22px;
+}
+  .bz-logo {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 23px;
+    background: linear-gradient(145deg,#d8f8eb,#f5fffa);
+    box-shadow: 0 10px 28px rgba(7,133,117,.16);
+    font-size: 2.3rem;
+}
+  .bz-note {
+    line-height: 1.8;
+    color: var(--muted,#607d75);
+}
+  .yg-toast {
+    position: fixed;
+    z-index: 9998;
+    bottom: 76px;
+    left: 16px;
+    max-width: min(320px,calc(100vw - 32px));
+    padding: 12px 15px;
+    border-radius: 14px;
+    background: #103e37;
+    color: white;
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    animation: yg-toast-in .22s ease-out;
+}
+  @keyframes yg-tile-in {
+    from {
+      transform: scale(.94);
+      opacity: .72;
+  }
+    to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+  @keyframes yg-toast-in {
+    from {
+      transform: translateY(8px);
+      opacity: 0;
+  }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+  @media(max-width:640px) {
+    .party-wrap,.bz-wrap,.boardgame,body:has(.on-game)>main {
+      padding: 14px!important;
+  }
+    .party-panel,.bz-panel,.boardpanel,.on-game {
+      border-radius: 18px!important;
+  }
+    .bg-controls {
+      align-items: stretch;
+  }
+    .bg-controls>* {
+      max-width: 100%;
+  }
+    .yg-toast {
+      left: 10px;
+      bottom: 65px;
+  }
+    .bz-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+  }
+    .soc-actions,.lg-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+  }
+}
+  @media(prefers-reduced-motion:reduce) {
+    *,*:before,*:after {
+      animation-duration: .01ms!important;
+      animation-iteration-count: 1!important;
+      scroll-behavior: auto!important;
+      transition-duration: .01ms!important;
+  }
+}
+  /* Unified menus: game pages use the exact same select / date / time look as the main app (style.css),
+   even when a page-level rule styles every <button> or <select> (party-form, bg-controls, bz-*). */
+  .dd .dd-btn {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--r-sm,14px);
+    font: inherit;
+    font-weight: 500;
+    background: #fff;
+    color: var(--ink,#111);
+    border: 1px solid var(--line,#d6e2e5);
+    box-shadow: inset 0 1px 2px rgba(6,62,55,.04);
+    min-height: 0;
+}
+  .dd.open .dd-btn,.dd .dd-btn:focus-visible {
+    border-color: var(--teal,#04796c);
+    box-shadow: var(--ring);
+}
+  .dd .dd-btn.empty .dd-text {
+    color: #93a29e;
+    font-weight: 400;
+}
+  .dd-list {
+    color: var(--ink,#111);
+}
+  .dd .dd-opt {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #33433f;
+}
+  .dd .dd-opt.sel {
+    color: var(--teal,#04796c);
+    font-weight: 700;
+}
+  .dd-list.pk button {
+    min-height: 0;
+}
+  @media(max-width:760px) {
+    .dd .dd-btn {
+      font-size: 16px;
+      border-radius: 14px;
+      padding: 13px 15px;
+  }
+}
+
